@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XAUUSD Trading Chart - MetaTrader 5 Style</title>
+    <script src="/js/lightweight-charts.standalone.production.js"></script>
+    <script src="/js/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #1e1e1e;
+            color: #ffffff;
+        }
+        
+        .chart-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .chart-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .chart-info {
+            font-size: 14px;
+            color: #cccccc;
+        }
+        
+        #chart-container {
+            width: 100%;
+            height: 600px;
+            margin: 0 auto;
+            border: 1px solid #333333;
+            border-radius: 5px;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 20px;
+            font-size: 16px;
+            color: #cccccc;
+        }
+        
+        .error {
+            text-align: center;
+            padding: 20px;
+            font-size: 16px;
+            color: #ff6b6b;
+            background-color: #332828;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        
+        .controls {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .controls button {
+            background-color: #3a3a3a;
+            color: #ffffff;
+            border: 1px solid #555555;
+            padding: 8px 16px;
+            margin: 0 5px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .controls button:hover {
+            background-color: #505050;
+        }
+        
+        .controls button.active {
+            background-color: #0066cc;
+            border-color: #0066cc;
+        }
+    </style>
+</head>
+<body>
+
+<div class="chart-header">
+    <div class="chart-title">XAUUSD Trading Chart</div>
+    <div class="chart-info">Gold/USD - Live Candlestick Chart</div>
+</div>
+
+<div class="controls">
+    <button onclick="loadTimeframe('M5')" id="btn-M5">M5</button>
+    <button onclick="loadTimeframe('M15')" id="btn-M15">M15</button>
+    <button onclick="loadTimeframe('M30')" id="btn-M30">M30</button>
+    <button onclick="loadTimeframe('H1')" id="btn-H1" class="active">H1</button>
+    <button onclick="loadTimeframe('H4')" id="btn-H4">H4</button>
+</div>
+
+<div id="loading" class="loading">Loading chart data...</div>
+<div id="error" class="error" style="display: none;"></div>
+<div id="chart-container"></div>
+
+</body>
+</html>
