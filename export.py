@@ -3,7 +3,7 @@ from sqlalchemy import create_engine
 import os
 
 # --- 1. KONFIGURASI DATABASE (GANTI DENGAN KREDENSIAL ANDA) ---
-DB_USER = "postgres"        # Contoh: "postgres"
+DB_USER = "dev"        # Contoh: "postgres"
 DB_PASSWORD = "12345678"  # Contoh: "secret"
 DB_HOST = "127.0.0.1"        # Contoh: "127.0.0.1"
 DB_PORT = "5432"             # Port PostgreSQL standar
@@ -85,14 +85,17 @@ if __name__ == '__main__':
     # Daftar file Anda dan parameter terkait
     file_list = [
         # Ganti nama file ini sesuai dengan file yang Anda miliki
-        # ("XAUUSD_M5.csv", "XAUUSD", "M5"), 
-        ("XAUUSD_M10.csv", "XAUUSD", "M10"),
-        ("XAUUSD_M15.csv", "XAUUSD", "M15"),
-        ("XAUUSD_M30.csv", "XAUUSD", "M30"),
-        ("XAUUSD_H1.csv", "XAUUSD", "H1"),
-        ("XAUUSD_H4.csv", "XAUUSD", "H4"),
-        # Tambahkan pair lain jika sudah ada
-        # ("EURUSD_M5.csv", "EURUSD", "M5"), 
+        ("XAUUSD_M1_202101040100_202106302354.csv", "XAUUSD", "M1"), 
+        ("XAUUSD_M1_202107010100_202112312354.csv", "XAUUSD", "M1"),
+
+        ("XAUUSD_M1_202201030100_202206302354.csv", "XAUUSD", "M1"),
+        ("XAUUSD_M1_202207010100_202212302354.csv", "XAUUSD", "M1"),
+        ("XAUUSD_M1_202301030100_202306302354.csv", "XAUUSD", "M1"),
+        ("XAUUSD_M1_202307030101_202312292354.csv", "XAUUSD", "M1"),
+        ("XAUUSD_M1_202401020101_202406282357.csv", "XAUUSD", "M1"),
+        ("XAUUSD_M1_202407010100_202412312357.csv", "XAUUSD", "M1"),
+        ("XAUUSD_M1_202501020101_202509292357.csv", "XAUUSD", "M1"),
+        ("XAUUSD_M1_202510010101_202512312357.csv", "XAUUSD", "M1"),
     ]
     
     print("Memulai proses koneksi dan pemuatan data...")
