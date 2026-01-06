@@ -1,6 +1,7 @@
 import pandas as pd
 from sqlalchemy import create_engine
 import os
+import sys
 
 # --- 1. KONFIGURASI DATABASE (GANTI DENGAN KREDENSIAL ANDA) ---
 DB_USER = "dev"        # Contoh: "postgres"
@@ -29,8 +30,10 @@ def process_and_load_csv(file_path, symbol, timeframe, engine):
         return
 
     # 1. Pembuatan Kolom Datetime (timestamp)
-    # Menggabungkan kolom <DATE> dan <TIME>
+    # Convert to datetime (naive) then localize to Asia/Jakarta
+    # Ini penting agar PostgreSQL tidak menganggap ini UTC (yang akan menyebabkan shift +7 jam di tampilan lokal)
     df['timestamp'] = pd.to_datetime(df['<DATE>'] + ' ' + df['<TIME>'], format='%Y.%m.%d %H:%M:%S')
+    df['timestamp'] = df['timestamp'].dt.tz_localize('Asia/Jakarta')
 
     # 2. Penambahan Kolom Kunci
     df['symbol'] = symbol
